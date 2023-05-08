@@ -8,6 +8,7 @@ import { moviesRouter } from './routes/movies.js';
 import { usersRouter } from './routes/users.js';
 import { theatersRouter } from './routes/theaters.js';
 import { bookingsRouter } from './routes/bookings.js';
+import { paymentRoutes } from './routes/payments.js';
 
 const app = express();
 const PORT = process.env.PORT || 9200;
@@ -42,6 +43,8 @@ app.use('/theaters', theatersRouter);
 app.use('/bookings', bookingsRouter);
 
 app.use('/users', usersRouter);
+
+app.use("/api/payment/", paymentRoutes);
 
 app.listen(PORT, () => {
     console.log('Server started on port ', PORT);
